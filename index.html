@@ -5,7 +5,6 @@
     <script src="https://code.jquery.com/jquery-3.5.0.min.js"></script>
     <script>
 
-        //https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js
 
         $(function(){
             let N = 9;
@@ -21,8 +20,6 @@
             let board1_s = Array.from("217386954356194728489257136165948273872563419943712685521439867798625341634871592");
             let board1_test = Array.from("2173.69543561947284892571361659482738725634199437126855214398677986253.1634871592");
 
-            //A program gyorsabb tesztelesehez keszitettem egy olyan palyat, amelyrol csak 2 szam hianyzik.
-            //Ha ezt szeretne hasznalni, akkor az addSudoku fuggveny meghivasanal a board1_test parametert kell megadni.
 
             $(document).ready(function () {
                 createBoard();
@@ -39,7 +36,7 @@
 
 
 
-                $('#newGame').text('Új játék indítása');
+                $('#newGame').text('New game');
 
                 $('#newGame').click(function () {
                     location.reload();
@@ -49,11 +46,11 @@
             let counter = 0;
             let myInterval = setInterval(function () {
                 counter++;
-                $('#seconds').text("Eltelt másodpercek: "+counter);
+                $('#seconds').text("Ellapsed seconds: "+counter);
             }, 1000);
 
 
-            //a játéktér létrehozása
+            //Init board
             function createBoard(){
                 for(let i = 0; i < N; i++){
                     for(let j = 0; j < N; j++) {
@@ -72,7 +69,7 @@
                     }
                 }
             }
-            //számlista létrehozása
+            //Number list
             function createNumList(){
                 for (let i = 0; i < 10 ; i++){
                     let numtile = $('<div>', {id: "num"+(i+1)});
@@ -93,7 +90,7 @@
                 $('#num'+10).text("X");
             }
 
-            //a sudoku számok hozzáadása
+            //Sudoku board numbers
             function addSudoku(string){
                 for (let i = 0; i < N; i++){
                     for (let j = 0; j < N; j++){
@@ -106,7 +103,7 @@
                     }
                 }
             }
-            //az éppen kattintott számok kijelölése.
+            //Highlighting the clicked number
             function clickedNumber(){
                 for (let i = 0; i < N; i++){
                     for (let j = 0; j < N; j++){
@@ -123,7 +120,7 @@
                     }
                 }
             }
-            //szám beírása a sudokuba
+            //Placing number on the board
             function placingNum(string){
                 for (let i = 0; i < N; i++){
                     for (let j = 0; j < N; j++){
@@ -221,7 +218,7 @@
                             $('#num'+10).removeClass('work');
                         }
                     }
-                    let person = prompt("Gartulálok! Adja meg a nevét:", "player1");
+                    let person = prompt("Congratulations! Your name:", "player1");
                     localStorage.setItem(person, Number(scoreCount));
 
                     fill_toplist();
