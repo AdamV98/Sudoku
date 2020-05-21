@@ -860,7 +860,7 @@
             let counter = 0;
             let myInterval = setInterval(function () {
                 counter++;
-                $('#seconds').text("Ellapsed seconds: "+counter);
+                $('#seconds').text("Ellapsed time: "+parseInt(counter/60)+":"+counter%60);
             }, 1000);
 
 
